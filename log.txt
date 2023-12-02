@@ -1,0 +1,80 @@
+game starts!
+game starts!
+['bR', 'bN', 'bB', 'bQ', 'bK', 'bB', 'bN', 'bR']
+['bP', 'bP', 'bP', 'bP', 'bP', 'bP', 'bP', 'bP']
+['  ', '  ', '  ', '  ', '  ', '  ', '  ', '  ']
+['  ', '  ', '  ', '  ', '  ', '  ', '  ', '  ']
+['  ', '  ', '  ', '  ', '  ', '  ', '  ', '  ']
+['  ', '  ', '  ', '  ', '  ', '  ', '  ', '  ']
+['wP', 'wP', 'wP', 'wP', 'wP', 'wP', 'wP', 'wP']
+['wR', 'wN', 'wB', 'wQ', 'wK', 'wB', 'wN', 'wR']
+game was closed
+
+game starts!
+['bR', 'bN', 'bB', 'bQ', 'bK', 'bB', 'bN', 'bR']
+['bP', 'bP', 'bP', 'bP', 'bP', 'bP', 'bP', 'bP']
+['  ', '  ', '  ', '  ', '  ', '  ', '  ', '  ']
+['  ', '  ', '  ', '  ', '  ', '  ', '  ', '  ']
+['  ', '  ', '  ', '  ', '  ', '  ', '  ', '  ']
+['  ', '  ', '  ', '  ', '  ', '  ', '  ', '  ']
+['wP', 'wP', 'wP', 'wP', 'wP', 'wP', 'wP', 'wP']
+['wR', 'wN', 'wB', 'wQ', 'wK', 'wB', 'wN', 'wR']
+game was closed
+
+game starts!
+['bR', 'bN', 'bB', 'bQ', 'bK', 'bB', 'bN', 'bR']
+['bP', 'bP', 'bP', 'bP', 'bP', 'bP', 'bP', 'bP']
+['  ', '  ', '  ', '  ', '  ', '  ', '  ', '  ']
+['  ', '  ', '  ', '  ', '  ', '  ', '  ', '  ']
+['  ', '  ', '  ', '  ', '  ', '  ', '  ', '  ']
+['  ', '  ', '  ', '  ', '  ', '  ', '  ', '  ']
+['wP', 'wP', 'wP', 'wP', 'wP', 'wP', 'wP', 'wP']
+['wR', 'wN', 'wB', 'wQ', 'wK', 'wB', 'wN', 'wR']
+game was closed
+
+game starts!
+e2 --> e4
+e7 --> f5
+e4 --> g4
+f5 --> g4
+d1 --> g4
+b7 --> b6
+g4 --> h5
+['bR', 'bN', 'bB', 'bQ', 'bK', 'bB', 'bN', 'bR']
+['bP', '  ', 'bP', 'bP', '  ', 'bP', 'bP', 'bP']
+['  ', 'bP', '  ', '  ', '  ', '  ', '  ', '  ']
+['  ', '  ', '  ', '  ', '  ', '  ', '  ', 'wQ']
+['  ', '  ', '  ', '  ', '  ', '  ', '  ', '  ']
+['  ', '  ', '  ', '  ', '  ', '  ', '  ', '  ']
+['wP', 'wP', 'wP', 'wP', '  ', 'wP', 'wP', 'wP']
+['wR', 'wN', 'wB', '  ', 'wK', 'wB', 'wN', 'wR']
+White wins!
+
+game starts!
+['bR', 'bN', 'bB', 'bQ', 'bK', 'bB', 'bN', 'bR']
+['bP', 'bP', 'bP', 'bP', 'bP', 'bP', 'bP', 'bP']
+['  ', '  ', '  ', '  ', '  ', '  ', '  ', '  ']
+['  ', '  ', '  ', '  ', '  ', '  ', '  ', '  ']
+['  ', '  ', '  ', '  ', '  ', '  ', '  ', '  ']
+['  ', '  ', '  ', '  ', '  ', '  ', '  ', '  ']
+['wP', 'wP', 'wP', 'wP', 'wP', 'wP', 'wP', 'wP']
+['wR', 'wN', 'wB', 'wQ', 'wK', 'wB', 'wN', 'wR']
+game was closed
+
+game starts!
+game starts!
+['bR', 'bN', 'bB', 'bQ', 'bK', 'bB', 'bN', 'bR']
+['bP', 'bP', 'bP', 'bP', 'bP', 'bP', 'bP', 'bP']
+['  ', '  ', '  ', '  ', '  ', '  ', '  ', '  ']
+['  ', '  ', '  ', '  ', '  ', '  ', '  ', '  ']
+['  ', '  ', '  ', '  ', '  ', '  ', '  ', '  ']
+['  ', '  ', '  ', '  ', '  ', '  ', '  ', '  ']
+['wP', 'wP', 'wP', 'wP', 'wP', 'wP', 'wP', 'wP']
+['wR', 'wN', 'wB', 'wQ', 'wK', 'wB', 'wN', 'wR']
+game was closed
+
+game starts!
+a2 --> a4
+game starts!
+game starts!
+game starts!
