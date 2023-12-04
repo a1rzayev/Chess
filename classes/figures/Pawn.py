@@ -16,7 +16,7 @@ class Pawn(Figure):
 
 	def getPossibleMoves(self, board):
 		'''get possible moves of figure'''
-		output = []
+		possible_moves = []
 		moves = []
 
 		if (self.color == 'white'):
@@ -32,46 +32,46 @@ class Pawn(Figure):
 		for move in moves:
 			new_pos = (self.x, self.y + move[1])
 			if (new_pos[1] < 8 and new_pos[1] >= 0):
-				output.append(board.getSquareFromPos(new_pos))
+				possible_moves.append(board.getSquareFromPos(new_pos))
 
-		return output
+		return possible_moves
 
 
 	def getMoves(self, board):
-		output = []
+		moves = []
 		for square in self.getPossibleMoves(board):
 			if (square.occupying_figure != None):
 				break
 			else:
-				output.append(square)
+				moves.append(square)
 
 		if (self.color == 'white'):
 			if (self.x + 1 < 8 and self.y - 1 >= 0):
 				square = board.getSquareFromPos((self.x + 1, self.y - 1))
 				if (square.occupying_figure != None):
 					if (square.occupying_figure.color != self.color):
-						output.append(square)
+						moves.append(square)
 			if (self.x - 1 >= 0 and self.y - 1 >= 0):
 				square = board.getSquareFromPos((self.x - 1, self.y - 1))
 				if (square.occupying_figure != None):
 					if (square.occupying_figure.color != self.color):
-						output.append(square)
+						moves.append(square)
 
 		elif (self.color == 'black'):
 			if (self.x + 1 < 8 and self.y + 1 < 8):
 				square = board.getSquareFromPos((self.x + 1, self.y + 1))
 				if (square.occupying_figure != None):
 					if (square.occupying_figure.color != self.color):
-						output.append(square)
+						moves.append(square)
 			if (self.x - 1 >= 0 and self.y + 1 < 8):
 				square = board.getSquareFromPos((self.x - 1, self.y + 1))
 				if (square.occupying_figure != None):
 					if (square.occupying_figure.color != self.color):
-						output.append(square)
+						moves.append(square)
 
-		return output
+		return moves
 
 	def attackingSquares(self, board):
 		'''get possible attacks of pawn(this figure moves vertical, but has diagonal attack)'''
-		moves = self.getMoves(board)
-		return [i for i in moves if i.x != self.x]
+		attacking_squares = self.getMoves(board)
+		return [i for i in attacking_squares if i.x != self.x]

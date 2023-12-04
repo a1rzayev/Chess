@@ -16,34 +16,34 @@ class Bishop(Figure):
 
 	def getPossibleMoves(self, board):
 		'''get possible moves of figure'''
-		output = []
+		possible_moves = []
 
 		moves_ne = [] # north-east
 		for i in range(1, 8):
 			if (self.x + i > 7 or self.y - i < 0):
 				break
 			moves_ne.append(board.getSquareFromPos((self.x + i, self.y - i)))
-		output.append(moves_ne)
+		possible_moves.append(moves_ne)
 
 		moves_se = [] # south-east
 		for i in range(1, 8):
 			if (self.x + i > 7 or self.y + i > 7):
 				break
 			moves_se.append(board.getSquareFromPos((self.x + i, self.y + i)))
-		output.append(moves_se)
+		possible_moves.append(moves_se)
 
 		moves_sw = [] # south-west
 		for i in range(1, 8):
 			if (self.x - i < 0 or self.y + i > 7):
 				break
 			moves_sw.append(board.getSquareFromPos((self.x - i, self.y + i)))
-		output.append(moves_sw)
+		possible_moves.append(moves_sw)
 
 		moves_nw = [] # north-west
 		for i in range(1, 8):
 			if (self.x - i < 0 or self.y - i < 0):
 				break
 			moves_nw.append(board.getSquareFromPos((self.x - i, self.y - i)))
-		output.append(moves_nw)
+		possible_moves.append(moves_nw)
 
-		return output
+		return possible_moves

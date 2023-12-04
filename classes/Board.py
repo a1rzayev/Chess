@@ -75,10 +75,10 @@ class Board:
 	
 	def toReadableConfig(self):
 		'''convert config to string'''
-		strConfig = ""
+		str_config = ""
 		for row in self.config:
-			strConfig += f"{row}\n"
-		return strConfig
+			str_config += f"{row}\n"
+		return str_config
 
 	def handleClick(self, mx, my):
 		'''event to click. on click we choose what to do'''

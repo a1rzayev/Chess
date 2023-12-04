@@ -16,7 +16,7 @@ class Knight(Figure):
 
 	def getPossibleMoves(self, board):
 		'''get possible moves of figure'''
-		output = []
+		possible_moves = []
 		moves = [
 			(1, -2), # forward2-right1
 			(2, -1), # forward1-right2
@@ -31,6 +31,6 @@ class Knight(Figure):
 		for move in moves:
 			new_pos = (self.x + move[0], self.y + move[1])
 			if (new_pos[0] < 8 and new_pos[0] >= 0 and new_pos[1] < 8 and new_pos[1] >= 0):
-				output.append([board.getSquareFromPos(new_pos)])
+				possible_moves.append([board.getSquareFromPos(new_pos)])
 
-		return output
+		return possible_moves

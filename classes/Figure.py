@@ -44,28 +44,28 @@ class Figure:
 
 
 	def getMoves(self, board):
-		output = []
+		moves = []
 		for direction in self.getPossibleMoves(board):
 			for square in direction:
 				if (square.occupying_figure is not None):
 					if (square.occupying_figure.color == self.color):
 						break
 					else:
-						output.append(square)
+						moves.append(square)
 						break
 				else:
-					output.append(square)
+					moves.append(square)
 
-		return output
+		return moves
 
 
 	def getValidMoves(self, board):
-		output = []
+		valid_moves = []
 		for square in self.getMoves(board):
 			if (not board.isCheck(self.color, board_change=[self.pos, square.pos])):
-				output.append(square)
+				valid_moves.append(square)
 
-		return output
+		return valid_moves
 
 	def attackingSquares(self, board):
 		return self.getMoves(board)

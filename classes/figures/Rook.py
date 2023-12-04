@@ -16,26 +16,26 @@ class Rook(Figure):
 
 	def getPossibleMoves(self, board):
 		'''get possible moves of figure'''
-		output = []
+		possible_moves = []
 
 		moves_north = [] # north
 		for y in range(self.y)[::-1]:
 			moves_north.append(board.getSquareFromPos((self.x, y)))
-		output.append(moves_north)
+		possible_moves.append(moves_north)
 
 		moves_east = [] # east
 		for x in range(self.x + 1, 8):
 			moves_east.append(board.getSquareFromPos((x, self.y)))
-		output.append(moves_east)
+		possible_moves.append(moves_east)
 
 		moves_south = [] # south
 		for y in range(self.y + 1, 8):
 			moves_south.append(board.getSquareFromPos((self.x, y)))
-		output.append(moves_south)
+		possible_moves.append(moves_south)
 
 		moves_west = [] # west
 		for x in range(self.x)[::-1]:
 			moves_west.append(board.getSquareFromPos((x, self.y)))
-		output.append(moves_west)
+		possible_moves.append(moves_west)
 
-		return output
+		return possible_moves

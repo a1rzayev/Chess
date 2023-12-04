@@ -16,7 +16,7 @@ class King(Figure):
 
 	def getPossibleMoves(self, board):
 		'''get possible moves of figure'''
-		output = []
+		possible_moves = []
 		moves = [
 			(0,-1), # north
 			(1, -1), # north-east
@@ -31,9 +31,9 @@ class King(Figure):
 		for move in moves:
 			new_pos = (self.x + move[0], self.y + move[1])
 			if (new_pos[0] < 8 and new_pos[0] >= 0 and new_pos[1] < 8 and new_pos[1] >= 0):
-				output.append([board.getSquareFromPos(new_pos)])
+				possible_moves.append([board.getSquareFromPos(new_pos)])
 
-		return output
+		return possible_moves
 
 	def canCastle(self, board):
 		'''returns bool(can king and rook do castle)'''
@@ -66,14 +66,14 @@ class King(Figure):
 
 
 	def getValidMoves(self, board):
-		output = []
+		valid_moves = []
 		for square in self.getMoves(board):
 			if (not board.isCheck(self.color, board_change=[self.pos, square.pos])):
-				output.append(square)
+				valid_moves.append(square)
 
 		if (self.canCastle(board) == 'queenside'):
-			output.append(board.getSquareFromPos((self.x - 2, self.y)))
+			valid_moves.append(board.getSquareFromPos((self.x - 2, self.y)))
 		if (self.canCastle(board) == 'kingside'):
-			output.append(board.getSquareFromPos((self.x + 2, self.y)))
+			valid_moves.append(board.getSquareFromPos((self.x + 2, self.y)))
 
-		return output
+		return valid_moves
