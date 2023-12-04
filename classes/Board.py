@@ -248,8 +248,6 @@ class Board:
 					square.highlight_color = (128, 0, 0)
 				else:
 					square.highlight_color = (0, 128, 0)
-				# if(self.selected_figure.notation == 'P'):
-				# 	self.selected_figure = (0, 128, 0)
 				for elem in self.squares:
 					if(elem.occupying_figure == self.selected_figure):
 						elem.highlight_color = (0, 128, 0)
