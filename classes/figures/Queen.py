@@ -3,6 +3,18 @@ import pygame
 from classes.Figure import Figure
 
 class Queen(Figure):
+	''' class Queen, which is child class of Figure.
+	  	Object contains chess figure Queen.
+
+	    functions:
+			(all functions of Figure. Because it's Figure's child elem)
+		    __init__
+			getPossibleMoves
+
+		params:
+			(all parametres of Figure. Because it's Figure's child elem)
+			img
+			notation'''
 	def __init__(self, pos, color, board):
 		'''initializes element of our class. this function also calls constructor'''
 		super().__init__(pos, color, board)

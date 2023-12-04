@@ -1,5 +1,20 @@
 class Figure:
-	
+	''' class Figure, which objects are playable. This class has child elements:
+		(Rook, Queen, Knight, Pawn, Bishop, King)
+
+	    functions:
+		    __init__
+			move
+			getMoves
+			getValidMoves
+			getAttackingSquares
+
+		params:
+			x
+			y
+			pos
+			color
+			has_moved'''
 	def __init__(self, pos, color, board):
 		'''initializes element of our class. this function also calls constructor'''
 		self.pos = pos
@@ -67,5 +82,5 @@ class Figure:
 
 		return valid_moves
 
-	def attackingSquares(self, board):
+	def getAttackingSquares(self, board):
 		return self.getMoves(board)

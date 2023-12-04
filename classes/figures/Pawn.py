@@ -3,6 +3,20 @@ import pygame
 from classes.Figure import Figure
 
 class Pawn(Figure):
+	''' class Pawn, which is child class of Figure.
+	  	Object contains chess figure Pawn.
+
+	    functions:
+			(all functions of Figure. Because it's Figure's child elem)
+		    __init__
+			getPossibleMoves
+			getAttackingSquares
+			getMoves
+			
+		params:
+			(all parametres of Figure. Because it's Figure's child elem)
+			img
+			notation'''
 	def __init__(self, pos, color, board):
 		'''initializes element of our class. this function also calls constructor'''
 		super().__init__(pos, color, board)
@@ -71,7 +85,7 @@ class Pawn(Figure):
 
 		return moves
 
-	def attackingSquares(self, board):
+	def getAttackingSquares(self, board):
 		'''get possible attacks of pawn(this figure moves vertical, but has diagonal attack)'''
 		attacking_squares = self.getMoves(board)
 		return [i for i in attacking_squares if i.x != self.x]

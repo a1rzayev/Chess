@@ -10,6 +10,37 @@ from classes.figures.King import King
 from classes.figures.Pawn import Pawn
 
 class Board:
+	''' class Board, which object are main to our project.
+	  	Object contains 64 squares from class Square.
+
+	    functions:
+		    __init__
+			generateSquares
+			toReadableConfig
+			setup
+			handleClick
+			isCheck
+			isCheckmate
+			isDraw
+			getSquareFromPos
+			getFigureFromPos
+			draw 
+			timer
+
+		params:
+			letters_list
+			width
+			height
+			square_width
+			square_height
+			selected_figure
+			turn
+			selected_x
+			selected_y
+			moving_x
+			moving_y
+			config
+			squares'''
 	def __init__(self, width, height):
 		'''initializes element of our class. this function also calls constructor'''
 		self.letters_list = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
@@ -145,7 +176,7 @@ class Board:
 						king_pos = piece.pos
 		for piece in pieces:
 			if (piece.color != color):
-				for square in piece.attackingSquares(self):
+				for square in piece.getAttackingSquares(self):
 					if (square.pos == king_pos):
 						is_check = True
 						# square.color = (128,0,0)
