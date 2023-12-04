@@ -30,15 +30,50 @@ def draw(screen, board):
 	
 	turn_font = pygame.font.SysFont("Arial", 40)
 	index_font = pygame.font.SysFont("Arial", 20)
-	pygame.draw.rect(screen, (100, 100, 100), (800, 0, 400, 100))
+	pygame.draw.rect(screen, (100, 100, 100), (800, 200, 400, 400))
 	letter = turn_font.render(f'{board.turn} plays', True, (0,0,0))
-	screen.blit(letter, (900, 25))
+	screen.blit(letter, (900, 375))
+
+	screen.blit(pygame.transform.scale(pygame.image.load('imgs/w_rook.png'), (60,80)), (800, 100))
+	screen.blit(turn_font.render(str(board.killed_white['R']), True, (0, 0, 0)), (800, 50))
+
+	screen.blit(pygame.transform.scale(pygame.image.load('imgs/w_queen.png'), (60,80)), (880, 100))
+	screen.blit(turn_font.render(str(board.killed_white['Q']), True, (0, 0, 0)), (880, 50))
+
+	screen.blit(pygame.transform.scale(pygame.image.load('imgs/w_pawn.png'), (60,80)), (960, 100))
+	screen.blit(turn_font.render(str(board.killed_white['P']), True, (0, 0, 0)), (960, 50))
+
+	screen.blit(pygame.transform.scale(pygame.image.load('imgs/w_knight.png'), (60,80)), (1040, 100))
+	screen.blit(turn_font.render(str(board.killed_white['N']), True, (0, 0, 0)), (1040, 50))
+
+	screen.blit(pygame.transform.scale(pygame.image.load('imgs/w_bishop.png'), (60,80)), (1120, 100))
+	screen.blit(turn_font.render(str(board.killed_white['B']), True, (0, 0, 0)), (1120, 50))
+
+
+
+	screen.blit(pygame.transform.scale(pygame.image.load('imgs/b_rook.png'), (60,80)), (800, 600))
+	screen.blit(turn_font.render(str(board.killed_black['B']), True, (0, 0, 0)), (800, 700))
+
+	screen.blit(pygame.transform.scale(pygame.image.load('imgs/b_queen.png'), (60,80)), (880, 600))
+	screen.blit(turn_font.render(str(board.killed_black['Q']), True, (0, 0, 0)), (880, 700))
+
+	screen.blit(pygame.transform.scale(pygame.image.load('imgs/b_pawn.png'), (60,80)), (960, 600))
+	screen.blit(turn_font.render(str(board.killed_black['P']), True, (0, 0, 0)), (960, 700))
+
+	screen.blit(pygame.transform.scale(pygame.image.load('imgs/b_knight.png'), (60,80)), (1040, 600))
+	screen.blit(turn_font.render(str(board.killed_black['N']), True, (0, 0, 0)), (1040, 700))
+
+	screen.blit(pygame.transform.scale(pygame.image.load('imgs/b_bishop.png'), (60,80)), (1120, 600))
+	screen.blit(turn_font.render(str(board.killed_black['B']), True, (0, 0, 0)), (1120, 700))
+
 
 	for i in range(8):
 		letter = index_font.render(f'{chr(65+i)}', True, (0, 0, 0))
 		number = index_font.render(f'{str(8-i)}', True, (0, 0, 0))
 		screen.blit(letter, (i*100 + 10, 0))
 		screen.blit(number, (0, i*100 + 10))
+
+	
 
 	pygame.display.update()
 
@@ -70,12 +105,14 @@ def gameProcess(board, screen, restart):
 			print('White wins!')
 			appendFile(board.toReadableConfig())
 			appendFile('White wins!\n\n')
+			draw(screen, board)
 			restart = askyesno(title='White wins!', message='Do you want to play again?')
 			is_running = False
 		elif board.isCheckmate('white'):
 			print('Black wins!')
 			appendFile(board.toReadableConfig())
 			appendFile('Black wins!\n\n')
+			draw(screen, board)
 			restart = askyesno(title='Black wins!', message='Do you want to play again?')
 			is_running = False
 	return restart

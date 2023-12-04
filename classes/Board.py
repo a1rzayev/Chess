@@ -49,6 +49,8 @@ class Board:
 		self.square_width = 100
 		self.square_height = 100
 		self.selected_figure = None
+		self.killed_white = {'R': 0, 'Q': 0, 'P': 0, 'N': 0, 'B': 0}
+		self.killed_black = {'R': 0, 'Q': 0, 'P': 0, 'N': 0, 'B': 0}
 		self.turn = 'white'
 		self.selected_x = None
 		self.selected_y = None
@@ -125,13 +127,21 @@ class Board:
 					self.selected_y = y
 
 		elif (self.selected_figure.move(self, clicked_square)):
-			self.turn = 'white' if self.turn == 'black' else 'black'
+
+			if(self.config[y][x] != '  '):
+				if (self.turn == "black") :
+					self.killed_white[self.config[y][x][1]] = self.killed_white[self.config[y][x][1]] + 1 
+				else:
+					self.killed_black[self.config[y][x][1]] = self.killed_black[self.config[y][x][1]] + 1
 
 			self.config[y][x] = self.config[self.selected_y][self.selected_x]
 			self.config[self.selected_y][self.selected_x] = '  '
 
 			print(f"{self.letters_list[self.selected_x]}{8 - self.selected_y} --> {self.letters_list[x]}{8 - y}")
 			appendFile(f"{self.letters_list[self.selected_x]}{8 - self.selected_y} --> {self.letters_list[x]}{8 - y}\n")
+
+
+			self.turn = 'white' if self.turn == 'black' else 'black'
 
 			print(f"\n{self.turn} plays")
 			print(self.toReadableConfig())
@@ -141,6 +151,8 @@ class Board:
 		elif (clicked_square.occupying_figure is not None):
 			if (clicked_square.occupying_figure.color == self.turn):
 				self.selected_figure = clicked_square.occupying_figure
+				self.selected_x = x
+				self.selected_y = y
 
 	def isCheck(self, color, board_change=None):
 		'''returns if there is check'''
@@ -257,6 +269,7 @@ class Board:
 
 		for square in self.squares:
 			square.draw(display)
+
 
 	def timer(self, minutes):
 		'''timer that computes time in game'''# isn't ready yet

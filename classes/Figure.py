@@ -37,14 +37,14 @@ class Figure:
 			board.selected_figure = None
 			self.has_moved = True
 
-			# Pawn promotion
-			if (self.notation == ' '):
+			
+			if (self.notation == ' '): # Pawn promotion
 				if (self.y == 0 or self.y== 7):
 					from classes.figures.Queen import Queen
 					square.occupying_figure = Queen((self.x, self.y), self.color, board)
 
-			# Move rook if king castles
-			if (self.notation == 'K'):
+			
+			if (self.notation == 'K'): # Move rook if king castles
 				if (prev_square.x - self.x == 2):
 					rook = board.getFigureFromPos((0, self.y))
 					rook.move(board, board.getSquareFromPos((3, self.y)), force=True)
