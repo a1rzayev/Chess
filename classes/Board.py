@@ -34,6 +34,8 @@ class Board:
 			square_width
 			square_height
 			selected_figure
+			killed_white
+			killed_black
 			turn
 			selected_x
 			selected_y
@@ -84,27 +86,27 @@ class Board:
 	def setup(self):
 		'''generate figures while initialization'''
 		for y, row in enumerate(self.config):
-			for x, piece in enumerate(row):
-				if (piece != ''):
+			for x, figure in enumerate(row):
+				if (figure != ''):
 					square = self.getSquareFromPos((x, y))
 
-					if (piece[1] == 'R'):
-						square.occupying_figure = Rook((x, y), 'white' if piece[0] == 'w' else 'black', self)
+					if (figure[1] == 'R'):
+						square.occupying_figure = Rook((x, y), 'white' if figure[0] == 'w' else 'black', self)
 
-					elif (piece[1] == 'N'):
-						square.occupying_figure = Knight((x, y), 'white' if piece[0] == 'w' else 'black', self)
+					elif (figure[1] == 'N'):
+						square.occupying_figure = Knight((x, y), 'white' if figure[0] == 'w' else 'black', self)
 
-					elif (piece[1] == 'B'):
-						square.occupying_figure = Bishop((x, y), 'white' if piece[0] == 'w' else 'black', self)
+					elif (figure[1] == 'B'):
+						square.occupying_figure = Bishop((x, y), 'white' if figure[0] == 'w' else 'black', self)
 
-					elif (piece[1] == 'Q'):
-						square.occupying_figure = Queen((x, y), 'white' if piece[0] == 'w' else 'black', self)
+					elif (figure[1] == 'Q'):
+						square.occupying_figure = Queen((x, y), 'white' if figure[0] == 'w' else 'black', self)
 
-					elif (piece[1] == 'K'):
-						square.occupying_figure = King((x, y), 'white' if piece[0] == 'w' else 'black', self)
+					elif (figure[1] == 'K'):
+						square.occupying_figure = King((x, y), 'white' if figure[0] == 'w' else 'black', self)
 
-					elif (piece[1] == 'P'):
-						square.occupying_figure = Pawn((x, y), 'white' if piece[0] == 'w' else 'black', self)
+					elif (figure[1] == 'P'):
+						square.occupying_figure = Pawn((x, y), 'white' if figure[0] == 'w' else 'black', self)
 	
 	def toReadableConfig(self):
 		'''convert config to string'''
