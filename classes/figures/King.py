@@ -80,6 +80,7 @@ class King(Figure):
 
 
 	def getValidMoves(self, board):
+		'''get list of valid moves for our figure'''
 		valid_moves = []
 		for square in self.getMoves(board):
 			if (not board.isCheck(self.color, board_change=[self.pos, square.pos])):

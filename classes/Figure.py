@@ -24,7 +24,7 @@ class Figure:
 		self.has_moved = False
 		
 	def move(self, board, square, force=False):
-
+		'''this function does move our figure'''
 		for i in board.squares:
 			i.highlight = False
 
@@ -59,6 +59,7 @@ class Figure:
 
 
 	def getMoves(self, board):
+		'''get moves that constantly we can do'''
 		moves = []
 		for direction in self.getPossibleMoves(board):
 			for square in direction:
@@ -70,11 +71,11 @@ class Figure:
 						break
 				else:
 					moves.append(square)
-
 		return moves
 
 
 	def getValidMoves(self, board):
+		'''get list of valid moves for our figure'''
 		valid_moves = []
 		for square in self.getMoves(board):
 			if (not board.isCheck(self.color, board_change=[self.pos, square.pos])):
@@ -83,4 +84,5 @@ class Figure:
 		return valid_moves
 
 	def getAttackingSquares(self, board):
+		'''get attacking moves of our figure'''
 		return self.getMoves(board)

@@ -52,6 +52,7 @@ class Pawn(Figure):
 
 
 	def getMoves(self, board):
+		'''get list of moves for our figure'''
 		moves = []
 		for square in self.getPossibleMoves(board):
 			if (square.occupying_figure != None):

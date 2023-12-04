@@ -39,8 +39,6 @@ class Board:
 			turn
 			selected_x
 			selected_y
-			moving_x
-			moving_y
 			config
 			squares'''
 	def __init__(self, width, height):
@@ -56,8 +54,6 @@ class Board:
 		self.turn = 'white'
 		self.selected_x = None
 		self.selected_y = None
-		self.moving_x = 0
-		self.moving_y = 0
 
 		self.config = [
 			['bR', 'bN', 'bB', 'bQ', 'bK', 'bB', 'bN', 'bR'],
@@ -193,18 +189,11 @@ class Board:
 				for square in piece.getAttackingSquares(self):
 					if (square.pos == king_pos):
 						is_check = True
-						# square.color = (128,0,0)
 
 		if (board_change is not None):
 			old_square.occupying_figure = changing_figure
 			new_square.occupying_figure = new_square_old_piece
 		
-		# if(is_check):
-		# 	for elem in pieces:
-		# 		if (elem.pos == king_pos and elem.occupying_figure.notation == "K"):
-		# 			elem.color = (128,0,0)
-		# 		else:
-		# 			elem.color = (255, 255, 255) if (elem.x + elem.y) % 2 == 0 else (128, 128, 128)
 		return is_check
 
 
@@ -221,8 +210,6 @@ class Board:
 			if (figure.notation != 'K' and figure.color == color):
 				king = figure
 			elif (self.isCheck(color)):
-				# for elem in self.squares:
-				# 	if(elem.occupying_figure.color == color):
 						
 				is_checkmate = True
 
@@ -271,20 +258,3 @@ class Board:
 
 		for square in self.squares:
 			square.draw(display)
-
-
-	def timer(self, minutes):
-		'''timer that computes time in game'''# isn't ready yet
-		seconds = minutes * 60
-		start_time = time.time()
-
-		while True:
-			elapsed_time = time.time() - start_time
-			remaining_time = max(0, seconds - elapsed_time)
-			minutes_remaining, seconds_remaining = divmod(remaining_time, 60)
-			print(f"Time remaining: {int(minutes_remaining)} minutes {int(seconds_remaining)} seconds", end='\r')
-			if (elapsed_time >= seconds):
-				break
-			time.sleep(1)
-
-		print("\nTimer completed!")

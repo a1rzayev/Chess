@@ -35,11 +35,6 @@ class Square:
 		self.abs_y = y * height
 		self.abs_pos = (self.abs_x, self.abs_y)
 		self.pos = (x, y)
-		# Red Green Blue
-		'''if(dhfjsd):
-				ssfgsh
-			else:
-				sdfshdf'''
 		self.color = (255, 255, 255) if (x + y) % 2 == 0 else (128, 128, 128)
 		self.highlight_color = (0, 128, 0)
 		self.occupying_figure = None
