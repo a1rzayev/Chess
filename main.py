@@ -8,7 +8,7 @@ if __name__ == "__main__":
 	screen = pygame.display.set_mode(WINDOW_SIZE)
 	playing = True
 	while(playing):
-		board = Board(WINDOW_SIZE[0], WINDOW_SIZE[1])
+		board = Board(800, 800)
 		initializeScreen()
 		initializeFile()
 		playing = gameProcess(board, screen, playing)
