@@ -1,5 +1,5 @@
+'''imports required in our file'''
 import pygame
-
 from classes.Figure import Figure
 
 class King(Figure):
@@ -50,6 +50,7 @@ class King(Figure):
 					if not kingside_rook.has_moved:
 						if ([board.getFigureFromPos((i, 7)) for i in range(5, 7)] == [None, None]):
 							return 'kingside'
+				
 
 			elif (self.color == 'black'):
 				queenside_rook = board.getFigureFromPos((0, 0))

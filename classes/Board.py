@@ -1,3 +1,4 @@
+'''imports required in our file'''
 import time
 from Resources import appendFile
 from classes.Square import Square
@@ -147,15 +148,18 @@ class Board:
 				for square in piece.attackingSquares(self):
 					if (square.pos == king_pos):
 						is_check = True
+						# square.color = (128,0,0)
 
 		if (board_change is not None):
 			old_square.occupying_figure = changing_figure
 			new_square.occupying_figure = new_square_old_piece
 		
 		# if(is_check):
-		# 	self.squares[king_pos[0]][king_pos[1]].color = (128, 0, 0)
-		# else:
-		# 	self.squares[king_pos[0]][king_pos[1]].color = (0, 0, 0)
+		# 	for elem in pieces:
+		# 		if (elem.pos == king_pos and elem.occupying_figure.notation == "K"):
+		# 			elem.color = (128,0,0)
+		# 		else:
+		# 			elem.color = (255, 255, 255) if (elem.x + elem.y) % 2 == 0 else (128, 128, 128)
 		return is_check
 
 
@@ -163,7 +167,7 @@ class Board:
 		'''returns if there is checkmate'''
 		is_checkmate = False
 
-		for figure in [i.occupying_figure for i in self.squares]:
+		for figure in [elem.occupying_figure for elem in self.squares]:
 			if (figure != None):
 				if (figure.notation == 'K' and figure.color == color):
 					king = figure
@@ -172,6 +176,9 @@ class Board:
 			if (figure.notation != 'K' and figure.color == color):
 				king = figure
 			elif (self.isCheck(color)):
+				# for elem in self.squares:
+				# 	if(elem.occupying_figure.color == color):
+						
 				is_checkmate = True
 
 		return is_checkmate
@@ -205,6 +212,16 @@ class Board:
 		if (self.selected_figure is not None):
 			self.getSquareFromPos(self.selected_figure.pos).highlight = True
 			for square in self.selected_figure.getValidMoves(self):
+				if(square.occupying_figure != None and square.occupying_figure.color != self.turn):
+					square.highlight_color = (128, 0, 0)
+				else:
+					square.highlight_color = (0, 128, 0)
+				# if(self.selected_figure.notation == 'P'):
+				# 	self.selected_figure = (0, 128, 0)
+				for elem in self.squares:
+					if(elem.occupying_figure == self.selected_figure):
+						elem.highlight_color = (0, 128, 0)
+						elem.highlight = True
 				square.highlight = True
 
 		for square in self.squares:

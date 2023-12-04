@@ -1,5 +1,5 @@
+'''imports required in our file'''
 import pygame
-
 from classes.Figure import Figure
 
 class Pawn(Figure):
